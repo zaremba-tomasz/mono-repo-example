@@ -13,7 +13,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-                sh 'Web'
+                sh 'echo "Web"'
             }
         }
         stage('Build iOS') {
@@ -28,7 +28,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               sh 'iOS'
+               sh 'echo "iOS"'
             }
         }
         stage('Build Android') {
@@ -43,7 +43,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               sh 'Android'
+               sh 'echo "Android"'
             }
         }
     }
