@@ -1,10 +1,11 @@
 {
-  "name": "android",
+  "name": "rn-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"android\""
+    "test:ios": "cat ios/source.txt",
+    "test:android": "cat android/source.txt"
   },
   "keywords": [],
   "author": "",
