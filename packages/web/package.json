@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"web\""
+    "test": "echo \"web 2\""
   },
   "keywords": [],
   "author": "",
