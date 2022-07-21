@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:lts-bullseye-slim'
+            args '-p 3000:3000'
+        }
+    }
+
+    stages {
+        stage('List repository') {
+            steps {
+                sh 'ls -R'
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('packages/web') {
+                    sh 'npm run test'
+                }
+            }
+        }
+    }
+}
