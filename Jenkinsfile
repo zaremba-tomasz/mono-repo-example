@@ -13,7 +13,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-                build job: 'Web', propagate: true, wait: true
+                build job: 'Web', propagate: true
             }
         }
         stage('Build iOS') {
@@ -28,7 +28,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               build job: 'iOS', propagate: true, wait: true
+               build job: 'iOS', propagate: true
             }
         }
         stage('Build Android') {
@@ -43,7 +43,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               build job: 'Android', propagate: true, wait: true
+               build job: 'Android', propagate: true
             }
         }
     }
