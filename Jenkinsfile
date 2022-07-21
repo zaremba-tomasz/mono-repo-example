@@ -4,7 +4,6 @@ pipeline {
         stage('Build Web') {
             when {
                 changeset "**/web/*.*"
-                beforeAgent true
             }
             steps {
                 build job: 'Web', propagate: true, wait: false
@@ -12,8 +11,10 @@ pipeline {
         }
         stage('Build iOS') {
             when {
-                changeset "**/app/ios/*.*"
-                beforeAgent true
+                anyOf {
+                    changeset "**/app/ios/*.*"
+                    changeset "**/app/shared.txt"
+                }
             }
             steps {
                build job: 'iOS', propagate: true, wait: false
@@ -21,8 +22,10 @@ pipeline {
         }
         stage('Build Android') {
             when {
-                changeset "**/app/android/*.*"
-                beforeAgent true
+                anyOf {
+                    changeset "**/app/android/*.*"
+                    changeset "**/app/shared.txt"
+                }
             }
             steps {
                build job: 'Android', propagate: true, wait: false
