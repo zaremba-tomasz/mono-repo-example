@@ -13,7 +13,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-                sh 'echo "Web"'
+                build job: 'Web', propagate: true, wait: true
             }
         }
         stage('Build iOS') {
@@ -28,7 +28,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               sh 'echo "iOS"'
+               build job: 'iOS', propagate: true, wait: true
             }
         }
         stage('Build Android') {
@@ -43,7 +43,7 @@ pipeline {
                 beforeAgent true
             }
             steps {
-               sh 'echo "Android"'
+               build job: 'Android', propagate: true, wait: true
             }
         }
     }
