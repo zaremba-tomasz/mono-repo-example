@@ -19,5 +19,13 @@ pipeline {
                 }
             }
         }
+        stage('Release') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh 'echo "Releasing..."'
+            }
+        }
     }
 }
