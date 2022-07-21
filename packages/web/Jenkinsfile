@@ -13,6 +13,13 @@ pipeline {
             }
         }
         stage('Test') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'release'
+                    branch pattern: 'release/.*', comparator: 'REGEXP'
+                }
+            }
             steps {
                 dir('packages/web') {
                     sh 'npm run test'
